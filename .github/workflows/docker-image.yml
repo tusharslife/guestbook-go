@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: tusharslife/guestbook-go:user/app:latest
+          tags: tusharslife/guestbook-go:latest
