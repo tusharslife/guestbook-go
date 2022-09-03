@@ -1,5 +1,7 @@
 name: Docker Image CI
 
+if: "!contains(github.event.head_commit.message, 'BUILD_CONTAINER_IMAGE')"
+
 on:
   push:
     branches:
@@ -8,8 +10,6 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, '[BUILD_CONTAINER_IMAGE]')"
-
 
     steps:
       -
