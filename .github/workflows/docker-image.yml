@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     if: "contains(github.event.head_commit.message, 'BUILD_CONTAINER_IMAGE')"
 
+
     steps:
       -
         name: Set up QEMU
