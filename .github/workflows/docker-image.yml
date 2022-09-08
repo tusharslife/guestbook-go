@@ -12,24 +12,6 @@ jobs:
     if: "contains(github.event.head_commit.message, 'BUILD_CONTAINER_IMAGE')"    
 
     steps:
-    - name: Dump GitHub context
-      id: github_context_step
-      run: echo '${{ toJSON(github) }}'
-      - 
-      name: Dump job context
-      run: echo '${{ toJSON(job) }}'
-      - 
-      name: Dump steps context
-      run: echo '${{ toJSON(steps) }}'
-      - 
-      name: Dump runner context
-      run: echo '${{ toJSON(runner) }}'
-      - 
-      name: Dump strategy context
-      run: echo '${{ toJSON(strategy) }}'
-      - 
-      name: Dump matrix context
-      run: echo '${{ toJSON(matrix) }}'
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -47,4 +29,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: tusharslife/guestbook-go:latest
+          tags: tusharslife/guestbook-go:${{ github.run_number }}
